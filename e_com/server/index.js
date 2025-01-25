@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const products = require('./data/products')
 const userRoutes = require('./routes/userRoutes')
 const productRoutes = require('./routes/productRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 dotenv.config()
 const PORT = process.env.PORT
 
@@ -21,6 +22,7 @@ const databaseSeeder = require('./databaseSeeder')
 app.use('/api/seed', databaseSeeder);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.listen(PORT || 4004, () => {
     console.log(`server listening on port ${PORT}`)
